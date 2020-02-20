@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:kashh/enitity/product.dart';
 import 'package:kashh/helpers/format.dart';
 import 'package:kashh/models/cart.dart';
+import 'package:kashh/screens/inventory/inventory.dart';
 import 'package:provider/provider.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -10,19 +11,22 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        // appBar: AppBar(
-        //   title: Text('Kashh - Cashier'),
-        // ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            Navigator.pushNamed(context, InventoryScreen.routeName);
+          },
+          child: Icon(Icons.add),
+        ),
         body: Container(
-      padding: EdgeInsets.only(top: 50.0),
-      decoration: BoxDecoration(color: Colors.blue[400]),
-      child: Column(
-        children: <Widget>[
-          HeaderWidget(),
-          Expanded(child: ProductListWidget())
-        ],
-      ),
-    ));
+          padding: EdgeInsets.only(top: 50.0),
+          decoration: BoxDecoration(color: Colors.blue[400]),
+          child: Column(
+            children: <Widget>[
+              HeaderWidget(),
+              Expanded(child: ProductListWidget())
+            ],
+          ),
+        ));
   }
 }
 
@@ -105,7 +109,7 @@ class ProductItemWidget extends StatelessWidget {
   final Product product;
 
   ProductItemWidget(this.product);
-  
+
   Widget build(BuildContext context) {
     return Container(
         padding: EdgeInsets.only(right: 20, left: 20),

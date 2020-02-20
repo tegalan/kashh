@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:kashh/models/cart.dart';
+import 'package:kashh/models/inventory.dart';
 import 'package:kashh/routes.dart';
 import 'package:provider/provider.dart';
 
 void main() => runApp(MultiProvider(
-      providers: [ChangeNotifierProvider(create: (context) => CartModel())],
+      providers: [ChangeNotifierProvider(create: (context) => CartModel()), ChangeNotifierProvider(create: (context) => InventoryModel())],
       child: KashApp(),
     ));
 
